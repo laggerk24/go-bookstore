@@ -19,6 +19,3 @@ func Connect() {
 func GetDB() *gorm.DB {
 	return db
 }
-
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
