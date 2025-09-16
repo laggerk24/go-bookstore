@@ -8,7 +8,6 @@ import (
 var (
 	db *gorm.DB
 )
-
 func Connect() {
 	d, err := gorm.Open("mysql", "root:Crossworld@123@tcp(127.0.0.1:3306)/simplerest?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
@@ -20,3 +19,6 @@ func Connect() {
 func GetDB() *gorm.DB {
 	return db
 }
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
