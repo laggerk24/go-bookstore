@@ -132,3 +132,20 @@ public class JobScheduler {
         System.out.println("[SCHEDULER] Shutdown initiated.");
     }
 }
+
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        JobScheduler scheduler = JobScheduler.getInstance(5);
+
+        long now = System.currentTimeMillis();
+
+        scheduler.scheduleJob(new ScheduledJob(now + 2000, () -> System.out.println("📧 Sending welcome email...")));
+        scheduler.scheduleJob(new ScheduledJob(now + 4000, () -> System.out.println("🧾 Generating report...")));
+        scheduler.scheduleJob(new ScheduledJob(now + 1000, () -> System.out.println("🔁 Syncing CRM data...")));
+        scheduler.scheduleJob(new ScheduledJob(now + 3000, () -> System.out.println("💾 Backing up database...")));
+
+        Thread.sleep(6000); // Let jobs run
+        scheduler.shutdown();
+    }
+}
